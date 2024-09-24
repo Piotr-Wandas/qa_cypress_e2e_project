@@ -28,7 +28,15 @@ class HomePageObject extends PageObject {
 
   clickSuccessfulRegistrationBtn() {
     this.successfulRegistrationBtn.click();
+
+  get signInLink() {
+    return cy.getByDataQa('sign-in-link');
   }
+
+  // assertHeaderContainUsername(username) {
+  //   this.usernameLink
+  //     .should('contain', username);
+  // }
 }
 
 export default HomePageObject;

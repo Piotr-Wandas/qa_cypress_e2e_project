@@ -26,6 +26,7 @@ module.exports = defineConfig({
             updatePassword: 'Password6789$'
           };
         },
+
         generateArticle() {
           return {
             title: faker.lorem.word(),
@@ -34,9 +35,8 @@ module.exports = defineConfig({
             tag: faker.lorem.word()
           };
         },
-        async 'db:clear'() {
+        'db:clear': async () => {
           await clear();
-
           return null;
         }
         // 'db:seed'() {

@@ -37,13 +37,16 @@ Cypress.Commands.add('getByDataQa', (selector) => {
 // });
 
 // eslint-disable-next-line max-len
-Cypress.Commands.add('register', (email = 'riot@qa.team', username = 'riot', password = '12345Qwert!') => {
-  cy.request('POST', '/users', {
-    email,
-    username,
-    password
-  });
-});
+Cypress.Commands.add(
+  'register',
+  (email = 'riot@qa.team', username = 'riot', password = '12345Qwert!') => {
+    cy.request('POST', '/users', {
+      email,
+      username,
+      password
+    });
+  }
+);
 
 Cypress.Commands.add('login', (email, username, password) => {
   cy.request('POST', 'http://localhost:1667/users', {
@@ -54,7 +57,7 @@ Cypress.Commands.add('login', (email, username, password) => {
     // eslint-disable-next-line object-shorthand
     password: password
     // eslint-disable-next-line arrow-parens
-  }).then(response => {
+  }).then((response) => {
     cy.setCookie('drash_sess', response.body.user.token);
   });
 });
